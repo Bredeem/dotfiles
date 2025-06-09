@@ -86,6 +86,7 @@ alias vim=nvim
 alias pn=pnpm
 alias c=clear
 alias bat=batcat
+alias fd=fdfind
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
