@@ -87,6 +87,7 @@ alias pn=pnpm
 alias c=clear
 alias bat=batcat
 alias fd=fdfind
+alias lg=lazygit
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
