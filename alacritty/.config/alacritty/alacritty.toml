@@ -1,5 +1,5 @@
 general.import = [
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/one-dark.toml"
 ]
 
 [env]
@@ -7,16 +7,17 @@ TERM = "xterm-256color"
 
 [window]
 
-dimensions.columns = 120
-dimensions.lines = 30
+# dimensions.columns = 120
+# dimensions.lines = 30
 
 opacity = 0.9
+blur = true
 
-padding.x = 10
-padding.y = 10
+# padding.x = 10
+# padding.y = 10
 
-decorations = "Full"
-decorations_theme_variant = "Dark"
+# decorations = "Full"
+# decorations_theme_variant = "Dark"
 
 [font]
 
@@ -25,6 +26,6 @@ bold.family = "JetBrainsMono NF"
 italic.family = "JetBrainsMono NF"
 bold_italic.family = "JetBrainsMono NF"
 
-size = 15
+size = 10
 
 
