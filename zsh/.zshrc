@@ -79,14 +79,14 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Add neovim binary
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+# export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 # Aliases
 alias vim=nvim
-alias pn=pnpm
+# alias pn=pnpm
 alias c=clear
-alias bat=batcat
-alias fd=fdfind
+# alias bat=batcat
+# alias fd=fdfind
 alias lg=lazygit
 
 # zoxide
@@ -101,15 +101,15 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # Set bat theme
-export BAT_THEME="Catppuccin Mocha"
+export BAT_THEME="onedark"
 
 # pnpm
-export PNPM_HOME="/home/brede/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+# export PNPM_HOME="/home/brede/.local/share/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
+# # pnpm end
 
 # history setup
 HISTFILE=$HOME/.zsh_history
@@ -123,3 +123,7 @@ setopt hist_verify
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
