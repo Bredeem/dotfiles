@@ -1,0 +1,12 @@
+[user]
+        email = brede@murberg.no
+        name = Brede Eder Murberg
+
+[init]
+  defaultBranch = main
+
+[core]
+        editor = nvim
+
+[color]
+        ui = auto
