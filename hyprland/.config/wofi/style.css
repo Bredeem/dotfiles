@@ -1,0 +1,55 @@
+@define-color text         #ABB2BF;
+@define-color background   #282c34;
+@define-color dark         #1F2329;
+@define-color alt          #393E48;
+@define-color blue         #61afef;
+
+* {
+  font-family: "JetBrains Nerd Font";
+  font-size: 16px;
+}
+
+#window {
+margin: 0px;
+border: 2px solid @blue;
+background-color: @dark;
+border-radius: 6px;
+}
+
+#input {
+margin: 5px;
+border: none;
+color: @text;
+background-color: @background;
+}
+
+#inner-box {
+margin: 5px;
+border: none;
+background-color: @background;
+border-radius: 6px;
+}
+
+#outer-box {
+margin: 5px;
+border: none;
+background-color: @dark;
+border-radius: 6px;
+}
+
+#scroll {
+margin: 0px;
+margin-bottom: 5px;
+border: none;
+border-radius: 6px;
+}
+
+#text {
+margin: 5px;
+border: none;
+color: @text;
+}
+
+#entry:selected {
+background-color: @alt;
+}

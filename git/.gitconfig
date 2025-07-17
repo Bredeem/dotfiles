@@ -3,10 +3,13 @@
         name = Brede Eder Murberg
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [core]
-        editor = nvim
+        editor = vim
 
 [color]
         ui = auto
+
+[url "git@github.com:"]
+	insteadOf = gh:
