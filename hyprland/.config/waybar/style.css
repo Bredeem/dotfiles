@@ -1,28 +1,22 @@
 @import "colors.css";
-
 * {
-  font-family: "JetBrains Nerd Font";
-  font-weight: bold;
-  font-size: 12px;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: 'JetBrainsMono Nerd Font', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
 }
 
 window#waybar {
-  background: @dark;
+    background: @dark;
+    color: @text;
 }
 
 window#waybar > box {
-  padding-left: 20px;
-  padding-right: 10px;
+  padding: 5px 10px;
 }
 
 window#waybar.hidden {
-  opacity: 0.2;
-}
-
-#custom-separator {
-  color: @alt500;
-  padding-left: 3px;
-  padding-right: 10px;
+    opacity: 0.2;
 }
 
 #workspaces {
@@ -32,6 +26,7 @@ window#waybar.hidden {
   color: @text500;
   border: 0px solid @text;
   background-color: transparent;
+  padding-right: 13px;
 }
 
 #workspaces button:hover {
@@ -53,58 +48,47 @@ window#waybar.hidden {
   background-color: transparent;
 }
 
-#network,
-#bluetooth,
-#idle_inhibitor,
-#battery,
 #clock,
-#tray {
-  background-color: @background500;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
+#battery,
+#cpu,
+#disk,
+#backlight,
 #network,
-#bluetooth,
-#idle_inhibitor,
+#pulseaudio,
+#power-profiles-daemon {
+    background-color: @dark;
+    padding: 5px 10px;
+    border: 2px solid @text500;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* Clock */
+#clock {
+  margin-left: 0px;
+}
+
+/* Battery */
 #battery {
-  background-color: @background500;
+    color: @green;
+    padding-right: 13px;
 }
 
-#network.disconnected,
-#bluetooth.off,
-#bluetooth.disabled,
-#pulseaudio.muted {
-  color: @alt;
-}
-
-
-#network {
-  color: @green;
-  border-radius: 10px 0 0 10px;
-  padding-left: 10px;
-}
-
-#bluetooth {
-  border-radius: 10px 0 0 10px;
-  padding-left: 10px;
-  font-size: 15px;
-  color: @blue;
-}
-
-#idle_inhibitor {
-  color: @white;
-  padding-right: 10px;
-  border-radius: 0 10px 10px 0;
-}
-
-#battery {
-  border-radius: 10px 0 0 10px;
-  padding-left: 10px;
-  margin-left: 5px;
-  color: @green;
+#battery.charging, #battery.plugged {
+    color: @blue;
 }
 
 #battery.warning {
@@ -115,16 +99,39 @@ window#waybar.hidden {
   color: @red;
 }
 
-#battery.charging {
-  color: @blue;
+/* Power profile */
+#power-profiles-daemon {
+    padding-right: 17px;
 }
 
-#clock {
-  color: @text;
+#power-profiles-daemon.performance {
+    color: @red;
 }
 
-#tray {
-  color: @text;
-  padding-right: 10px;
-  border-radius: 0 10px 10px 0;
+#power-profiles-daemon.balanced {
+    color: @blue;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @green;
+}
+
+/* Audio */
+#pulseaudio.muted {
+    color: @red;
+}
+
+/* Backlight */
+#backlight {
+  color: @yellow;
+}
+
+/* Network */
+#network {
+  color: @green;
+  padding-right: 17px;
+}
+
+#network.disconnected {
+  color: @red;
 }
