@@ -7,10 +7,11 @@
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    "clock"
+    "clock",
+    "hyprland/workspaces"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "hyprland/window"
   ],
   "modules-right": [
     "pulseaudio",
@@ -22,8 +23,8 @@
     "battery"
   ],
   "clock": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%A, %B %d, %Y (%R)}",
+    "format": "{:%R - %d.%m}",
+    "format-alt": "{:%R - %A, %B %d, %Y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
@@ -45,10 +46,10 @@
     }
   },
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "{name}",
     "on-click": "activate",
     "persistent-workspaces": {
-      "*": 5
+      "*": 3
     },
     "format-icons": {
       "urgent": "",
@@ -56,6 +57,9 @@
       "default": ""
     },
     "sort-by-number": true
+  },
+  "hyprland/window": {
+    // "format": "{initialTitle}"
   },
   "cpu": {
     "format": "{usage}% ",
@@ -125,9 +129,9 @@
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-bluetooth-muted": " {icon}",
-    "format-muted": " ",
+    "format-bluetooth": "{volume}% {icon} ",
+    "format-bluetooth-muted": " {icon} ",
+    "format-muted": "",
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
