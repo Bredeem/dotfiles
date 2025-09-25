@@ -9,8 +9,6 @@ shell = { program = "/bin/zsh" }
 TERM = "xterm-256color"
 
 [window]
-# dimensions.columns = 150
-# dimensions.lines = 40
 
 opacity = 0.8
 blur = true
@@ -19,14 +17,17 @@ dynamic_padding = true
 padding.x = 10
 padding.y = 5
 
+dimensions.columns = 150
+dimensions.lines = 40
+
 decorations = "Full"
 decorations_theme_variant = "Dark"
 
 [font]
-normal.family = "JetBrains Mono NL"
-bold.family = "JetBrains Mono NL"
-italic.family = "JetBrains Mono NL"
-bold_italic.family = "JetBrains Mono NL"
+# normal.family = "JetBrains Mono NL"
+# bold.family = "JetBrains Mono NL"
+# italic.family = "JetBrains Mono NL"
+# bold_italic.family = "JetBrains Mono NL"
 
 size = 14
 

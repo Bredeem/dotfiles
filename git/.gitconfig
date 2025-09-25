@@ -1,15 +1,20 @@
 [user]
-        email = brede@murberg.no
-        name = Brede Eder Murberg
+  email = brede@murberg.no
+  name = Brede Eder Murberg
 
 [init]
 	defaultBranch = main
 
 [core]
-        editor = vim
+  editor = vim
 
 [color]
-        ui = auto
+  ui = auto
 
 [url "git@github.com:"]
-	insteadOf = gh:
+  insteadOf = "gh:"
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

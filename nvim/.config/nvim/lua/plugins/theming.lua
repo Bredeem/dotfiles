@@ -1,6 +1,11 @@
 return {
   -- add one dark
-  { "navarasu/onedark.nvim" },
+  {
+    "navarasu/onedark.nvim",
+    -- opts = {
+    --   transparent = true,
+    -- },
+  },
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
