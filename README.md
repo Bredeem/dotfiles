@@ -25,6 +25,26 @@ stow -D <name>
 
 ## Installation
 
+### git
+
+[Set up SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+Symlink
+
+```console
+stow git
+```
+
+### Sway WM
+```console
+sudo apt install sway swayidle swaylock fuzzel waybar
+```
+
+Symlink
+```console
+stow sway
+```
+
 ### Alacritty
 
 Download [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)  
@@ -103,12 +123,3 @@ Symlink
 stow nvim
 ```
 
-### git
-
-[Set up SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-Symlink
-
-```console
-stow git
-```

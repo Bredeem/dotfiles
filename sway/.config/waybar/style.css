@@ -1,0 +1,96 @@
+@import url("colors.css");
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "JetBrains Mono", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+window#waybar {
+  background: @dark;
+  color: @text;
+}
+
+window#waybar > box {
+  padding: 2px 0px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  color: @text500;
+  border: 0px solid transparent;
+  background-color: transparent;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background: none;
+  transition: none;
+  background-color: @alt500;
+  color: @text700;
+}
+
+#workspaces button.visible {
+  color: @blue;
+  background-color: transparent;
+}
+
+#workspaces button.active {
+  color: @yellow;
+  background-color: transparent;
+}
+
+#workspaces button.hidden {
+  color: @red;
+  background-color: transparent;
+}
+
+#cpu,
+#disk,
+#clock,
+#network,
+#battery,
+#language,
+#backlight,
+#pulseaudio {
+  background-color: @dark;
+  padding: 5px 10px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+/* Battery */
+#battery.charging,
+#battery.plugged {
+  color: @blue;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+/* Audio */
+#pulseaudio.muted {
+  color: @red;
+}
+
+/* Network */
+#network.disconnected {
+  color: @red;
+}
