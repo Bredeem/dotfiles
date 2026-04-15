@@ -19,11 +19,13 @@
         "disk",
         "cpu",
         "network",
-        "battery"
+        "battery",
+        "custom/zulip",
+        "custom/notification"
     ],
     "clock": {
-        "format": "{:%A - %R}",
-        "format-alt": "{:%B %d, %Y - %R}",
+        "format": "{:%a %d - %R}",
+        "format-alt": "{:%d.%m.%y - %R}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -33,7 +35,7 @@
             "format": {
                 "months": "<span color='#98c379'><b>{}</b></span>",
                 "days": "<span color='#abb2bf'><b>{}</b></span>",
-                "weeks": "<span color='#61afef'><b>U{:%W}</b></span>",
+                "weeks": "<span color='#61afef'><b>W{:%W}</b></span>",
                 "weekdays": "<span color='#e5c07b'><b>{}</b></span>",
                 "today": "<span color='#e06c75'><b><u>{}</u></b></span>"
             }
@@ -51,7 +53,7 @@
             "1": [],
             "2": [],
             "3": [],
-            "4": [],
+            "4": []
         },
         "format-icons": {
             "urgent": "",
@@ -108,7 +110,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "   {essid}",
+        "format-wifi": " ",
         "format-ethernet": "󰈀  {ipaddr}/{cidr}",
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "󰈀 {ifname} (No IP)",
@@ -139,8 +141,36 @@
     "sway/language": {
         "format": "   {}",
         "tooltip-format": "{long}",
-        "format-no": "no",
+        "format-no": "nob",
         "format-no-smi": "sme",
-        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+        "format-no-dvorak": "dvo",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "<span size='16pt'>{icon}</span>",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/zulip": {
+        "exec": "~/.config/waybar/scripts/zulip-waybar.sh",
+        "return-type": "json",
+        "interval": 60,
+        "on-click": "zulip",
+        "tooltip": true
     }
 }

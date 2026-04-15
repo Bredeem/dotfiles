@@ -44,7 +44,7 @@ ZSH_THEME=""
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+  # git # Just write the commands out fully, easier to remember than a bunch of shortcuts. You're not saving that much time anyways lol
   sudo
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -82,11 +82,11 @@ fi
 # export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 # Aliases
-alias vim=nvim
-# alias pn=pnpm
+alias n=nvim
+alias pn=pnpm
 alias c=clear
-# alias bat=batcat
-# alias fd=fdfind
+alias bat=batcat
+alias fd=fdfind
 alias lg=lazygit
 alias :q=exit
 
@@ -132,10 +132,20 @@ export NVM_DIR="$HOME/.config/nvm"
 # Rust
 . "$HOME/.cargo/env"
 
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+# GiellaLT
+export GTLANGS="$HOME/gut/giellalt"
+export GIELLA_CORE="$HOME/gut/giellalt/giella-core"
+test -r "$GIELLA_CORE"/devtools/init.d/init.sh && . "$GIELLA_CORE"/devtools/init.d/init.sh
 
-eval "$(pyenv virtualenv-init -)"
+alias gtw="ssh brede@gtweb.uit.no"
+alias gtš=gtw
 
+
+# pnpm
+export PNPM_HOME="/home/brede/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+. "/home/brede/.deno/env"

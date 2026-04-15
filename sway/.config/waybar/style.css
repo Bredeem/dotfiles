@@ -56,7 +56,8 @@ window#waybar.hidden {
 #battery,
 #language,
 #backlight,
-#pulseaudio {
+#pulseaudio,
+#custom-notification {
   background-color: @dark;
   padding: 5px 10px;
 }

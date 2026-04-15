@@ -2,7 +2,7 @@ ignore-empty-password
 hide-keyboard-layout
 font=JetBrainsMono NerdFont
 
-image=~/.config/backgrounds/od_gargantua_uw.png
+image=~/.config/backgrounds/ultrawide/artistic_wave.jpeg
 scaling=fill
 
 indicator-radius=80
