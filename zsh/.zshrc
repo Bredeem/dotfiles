@@ -78,20 +78,14 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add neovim binary
-# export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-
 # Aliases
 alias n=nvim
 alias pn=pnpm
 alias c=clear
-alias bat=batcat
 alias fd=fdfind
 alias lg=lazygit
 alias :q=exit
-
-# zoxide
-eval "$(zoxide init --cmd cd zsh)"
+alias cal=calcurse
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -100,17 +94,6 @@ eval "$(zoxide init --cmd cd zsh)"
 fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
-
-# Set bat theme
-export BAT_THEME="onedark"
-
-# pnpm
-# export PNPM_HOME="/home/brede/.local/share/pnpm"
-# case ":$PATH:" in
-#   *":$PNPM_HOME:"*) ;;
-#   *) export PATH="$PNPM_HOME:$PATH" ;;
-# esac
-# # pnpm end
 
 # history setup
 HISTFILE=$HOME/.zsh_history
@@ -134,12 +117,13 @@ export NVM_DIR="$HOME/.config/nvm"
 
 # GiellaLT
 export GTLANGS="$HOME/gut/giellalt"
+export GTHOME=$GTLANGS
 export GIELLA_CORE="$HOME/gut/giellalt/giella-core"
 test -r "$GIELLA_CORE"/devtools/init.d/init.sh && . "$GIELLA_CORE"/devtools/init.d/init.sh
 
 alias gtw="ssh brede@gtweb.uit.no"
 alias gtš=gtw
-
+alias gtdict="ssh brede@gtdict.uit.no"
 
 # pnpm
 export PNPM_HOME="/home/brede/.local/share/pnpm"
@@ -148,4 +132,17 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# zoxide at "z" normal cd at "cd"
+eval "$(zoxide init zsh)"
+
+# deno, used by divvun
 . "/home/brede/.deno/env"
+
+# uv completions
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
+# eynollah
+export EYNOLLAH_MODELS=~/models/eynollah
+
