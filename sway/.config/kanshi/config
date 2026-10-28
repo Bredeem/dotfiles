@@ -1,0 +1,16 @@
+# Office: laptop on the left, ultrawide on the right
+profile office {
+    output eDP-1 enable mode 1920x1200 scale 1 position 0,480
+    output "Dell Inc. DELL P3424WEB 13X7584" enable mode 3440x1440 position 1920,0
+}
+
+# Home: 2K monitor on the left, laptop on the right
+profile home {
+    output "AOC Q32G1WG4 0x00000602" enable mode 2560x1440 position 0,0
+    output eDP-1 enable mode 1920x1200 scale 1 position 2560,480
+}
+
+# Fallback: laptop only
+profile undocked {
+    output eDP-1 enable
+}
