@@ -71,6 +71,12 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- Disable LSP logging (only needed for debugging)
+vim.lsp.set_log_level 'OFF'
+
+-- use jinja on .template files (for NDS)
+vim.filetype.add { extension = { template = 'jinja2' } }
+
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 vim.o.softtabstop = 2

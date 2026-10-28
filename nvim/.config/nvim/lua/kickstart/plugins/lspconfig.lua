@@ -210,31 +210,46 @@ return {
       local servers = {
         -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
         clangd = {},
-        pyright = {},
         -- jedi_language_server = {}, -- Python
+        -- ty = {}, -- not in nvim-lspconfig registry, configure via vim.lsp.config separately
         rust_analyzer = {},
-        jsonls = {
-          settings = {
-            json = {
-              validate = { enable = true },
-              schemas = {
-                fileMatch = { '*.jsonc' },
-                schema = {
-                  allowTrailingCommas = true,
-                },
-              },
-            },
-          },
-        },
+        jsonls = {},
         -- yamlls = {},
         dockerls = {},
         sqlls = {},
         ts_ls = {},
         html = {},
-        cssls = {},
+        cssls = {
+          settings = {
+            css = {
+              diagnostics = { enable = false },
+            },
+          },
+        },
         tailwindcss = {},
-        svelte = {},
+        svelte = {
+          settings = {
+            svelte = {
+              plugin = {
+                css = { diagnostics = { enable = false } },
+              },
+            },
+          },
+        },
         jinja_lsp = {},
+        -- XML: format as XMLmind saves (dict-sme, saveOptions in
+        -- xxe/common.incl): text wrapped at 120, and "<d/>" rather than
+        -- "<d />". The indent comes from .editorconfig.
+        lemminx = {
+          settings = {
+            xml = {
+              format = {
+                maxLineWidth = 120,
+                spaceBeforeEmptyCloseTag = false,
+              },
+            },
+          },
+        },
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -270,24 +285,20 @@ return {
         'eslint', -- Format js/ts
         'prettier',
         'prettierd',
-        'isort',
-        'black',
+        -- 'ruff',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      vim.lsp.config('*', { capabilities = capabilities })
+
+      for server_name, server_config in pairs(servers) do
+        if next(server_config) ~= nil then
+          vim.lsp.config(server_name, server_config)
+        end
+      end
+
       require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
+        automatic_enable = true,
       }
     end,
   },
