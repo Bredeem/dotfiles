@@ -1,9 +1,9 @@
 @import url("colors.css");
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "JetBrains Mono", sans-serif;
+  font-family: "JetBrainsMono Nerd Font", monospace;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 window#waybar {
@@ -57,7 +57,8 @@ window#waybar.hidden {
 #language,
 #backlight,
 #pulseaudio,
-#custom-notification {
+#custom-notification,
+#custom-layout {
   background-color: @dark;
   padding: 5px 10px;
 }
